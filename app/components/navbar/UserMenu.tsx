@@ -6,8 +6,10 @@ import MenuItem from "./MenuItem";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoCloseOutline } from "react-icons/io5";
 import Avatar from "../Avatar";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const NavBarItems = () => {
+  const registerModal = useRegisterModal();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -18,7 +20,7 @@ const NavBarItems = () => {
     <div className="flex w-auto py-2 transition-all">
       <div className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition ">
         <AiOutlineMenu size={20} onClick={toggleOpen} />
-        <Avatar src={null} />
+        <Avatar src={null} onClick={registerModal.onOpen} />
       </div>
       <div
         className={clsx(
